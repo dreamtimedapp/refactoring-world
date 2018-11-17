@@ -2,21 +2,21 @@ nginx:
     build: ./nginx
     links:
         - fireland:fireland
-        - refaction:refaction
+        - refactoring:refactoring
     ports:
         - "80:80"
         - "8081:8081"
         
-refaction:
-    build: ./refaction-vue
+refactoring:
+    build: ./refactoring-home-vue
     links:
         - redis
         - mongodb
     ports:
         - "3030"
     volumes:
-        - ./refaction-vue/:/home/app
-        - /home/app/node_modules
+        - ./refactoring-home-vue/:/home/refactoring
+        - /home/refactoring/node_modules
 
 fireland:
     build: ./fireland-vue
@@ -47,7 +47,7 @@ redis:
 mongodb:
     image: mongo
     ports:
-      - "27017:27017"
+      - "27017"
     volumes:
       - mongodb:/data/db/
     
