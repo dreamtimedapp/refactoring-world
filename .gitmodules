@@ -1,0 +1,3 @@
+[submodule "lemon-dice"]
+	path = lemon-dice
+	url = git@github.com:dreamtimedapp/lemon-dice.git

@@ -1,4 +1,4 @@
-mkdir test
+mkdir ./jenkins
 
 docker-compose down
 
