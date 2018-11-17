@@ -1,4 +1,3 @@
-mkdir ./jenkins
 
 docker-compose down
 

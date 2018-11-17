@@ -6,3 +6,6 @@
 	path = fireland-vue
 	url = git@github.com:dreamtimedapp/fireland-vue.git
 	
+[submodule "refactoring-home-vue"]
+	path = refactoring-home-vue
+	url = git@github.com:dreamtimedapp/refactoring-vue.git
