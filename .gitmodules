@@ -5,3 +5,4 @@
 [submodule "fireland-vue"]
 	path = fireland-vue
 	url = git@github.com:dreamtimedapp/fireland-vue.git
+	ignore = dirty
