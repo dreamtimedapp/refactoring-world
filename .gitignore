@@ -1,0 +1,7 @@
+/jenkins/*
+
+*node_modules
+*.config
+*.npm
+
+./refaction-vue
