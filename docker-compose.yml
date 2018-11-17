@@ -11,7 +11,7 @@ refactoring:
     build: ./refactoring-home-vue
     links:
         - redis
-        - mongodb
+        - mongo
     ports:
         - "3030"
     volumes:
@@ -19,10 +19,11 @@ refactoring:
         - /home/refactoring/node_modules
 
 fireland:
+    container_name: fireland
     build: ./fireland-vue
     links:
         - redis
-        - mongodb
+        - mongo
     ports:
         - "3030"
     volumes:
@@ -44,10 +45,11 @@ redis:
     ports:
         - "6379"
 
-mongodb:
+mongo:
+    container_name: mongo
     image: mongo
     ports:
       - "27017"
     volumes:
-      - mongodb:/data/db/
+      - mongo:/data/db/
     
