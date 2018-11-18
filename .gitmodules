@@ -1,11 +1,14 @@
 [submodule "lemon-dice"]
 	path = lemon-dice
 	url = git@github.com:dreamtimedapp/lemon-dice.git
+	branch = master
 
 [submodule "fireland-vue"]
 	path = fireland-vue
 	url = git@github.com:dreamtimedapp/fireland-vue.git
+	branch = master
 	
 [submodule "refactoring-home-vue"]
 	path = refactoring-home-vue
 	url = git@github.com:dreamtimedapp/refactoring-vue.git
+	branch = master
