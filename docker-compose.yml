@@ -1,55 +1,45 @@
-nginx:
-    build: ./nginx
-    links:
-        - fireland:fireland
-        - refactoring:refactoring
-    ports:
-        - "80:80"
-        - "8081:8081"
-        
-refactoring:
-    build: ./refactoring-home-vue
-    links:
-        - redis
-        - mongo
-    ports:
-        - "3030"
-    volumes:
-        - ./refactoring-home-vue/:/home/refactoring
-        - /home/refactoring/node_modules
+version: '3'
 
-fireland:
-    container_name: fireland
-    build: ./fireland-vue
-    links:
-        - redis
-        - mongo
-    ports:
-        - "3030"
-    volumes:
-        - ./fireland-vue/:/home/app
-        - /home/app/node_modules
+services:
+    nginx:
+        build: ./nginx
+        links:
+            - server1:server1
+            - server2:server2
+        ports:
+            - "80:80"
+            - "8081:8081"
+            
+    server1:
+        build: ./node-server
+        links:
+            - redis
+            - mongo
+        ports:
+            - "3030"
+        volumes:
+            - ./node-server/:/home/app
+            - /home/app/node_modules  
 
-jenkins:
-    build: ./jenkins-docker
-    ports:
-        - "8090:8080"
-        - "50000:50000"
-    volumes:
-        - "./jenkins:/var/jenkins_home"
-        - "/var/run/docker.sock:/var/run/docker.sock"
-        - "/usr/bin/docker:/usr/bin/docker"
+    server2:
+        build: ./node-server
+        links:
+            - redis
+            - mongo
+        ports:
+            - "3030"
+        volumes:
+            - ./node-server/:/home/app
+            - /home/app/node_modules    
+     
+    redis:
+        image: redis
+        ports:
+            - "6379"
 
-redis:
-    image: redis
-    ports:
-        - "6379"
-
-mongo:
-    container_name: mongo
-    image: mongo
-    ports:
-      - "27017"
-    volumes:
-      - mongo:/data/db/
+    mongo:
+        container_name: mongo
+        image: mongo
+        ports:
+            - "27017"
     
